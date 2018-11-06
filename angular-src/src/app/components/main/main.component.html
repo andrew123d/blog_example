@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="container">
+    <div class="col-xs-12 main-content">
+      <h4>Select one of our categories to navigate of our content.</h4>
+      <p class="right">
+        <button type="button" (click)="addCat()" class="btn btn-success btn-sm">
+            <i class="fas fa-plus-circle"></i> Add Category
+        </button>
+      </p>
+      <p *ngIf="showErr">
+        <strong>Warning! Internal Server error. Please, try again later.</strong>
+      </p>
+      <ul *ngIf="!showErr">
+        <li *ngFor="let cat of catData; let i = index; ">
+          <a [routerLink]="['/category/'+cat?._id]">
+            {{cat?.title}}
+          </a> 
+          <button type="button" (click)="removeCat(cat._id)" class="btn btn-danger btn-sm">
+              <i class="far fa-trash-alt"></i> 
+          </button>
+          
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+</div>

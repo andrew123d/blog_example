@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="container">
+    <div class="col-xs-12">
+      <h1>Edit post</h1>
+      <div class="row">
+        <div class="col-md-12">
+          <form>
+            <div class="form-group">
+              <label for="newPostTitle">Title</label>
+              <input type="text" [(ngModel)]="postData.title" name="newPostTitle" class="form-control"/>
+            </div>
+            <div class="form-group"> 
+              <p>Category: {{postData.category.title}} <span (click)="editCat()"><i class="fas fa-edit"></i></span></p>
+            </div>
+            <div *ngIf="showCats" class="form-group">
+              <label for="newPostCat">Change category</label>
+              <select [(ngModel)]="newPostCat" name="newPostCat" class="form-control" (ngModelChange)="updateCat($event)">
+                <option *ngFor="let cat of catsData;" value='{"title": "{{cat.title}}", "_id": "{{cat._id}}"}'>{{cat.title}}</option>
+              </select>
+            </div>
+              <div class="form-group">
+                <label for="PostDescShort">Short description</label>
+                <textarea [(ngModel)]="postData.description_short" name="PostDescShort" class="form-control">
+                </textarea>
+              </div>
+              <div class="form-group">
+                <label for="PostDscFull">Full description</label>
+                <textarea [(ngModel)]="postData.description_full" name="PostDscFull" class="form-control">
+                </textarea>
+              </div>
+              <div class="form-group">
+                <button type="button" (click)="updatePost()" class="btn btn-sm btn-success">Save</button>
+                <button type="button" (click)="returnToPost()" class="btn btn-sm btn-primary">Skip</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

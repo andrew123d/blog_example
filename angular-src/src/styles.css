@@ -1,0 +1,54 @@
+header{
+padding: 30px 0;
+background-color: #eaeaea;  
+}
+
+section{
+    padding: 30px 0; 
+    min-height: 650px; 
+    height: auto; 
+}
+footer{
+    text-align: center; 
+    padding: 30px 0; 
+    background-color: black; 
+    color: #fff; 
+
+}
+
+
+/* Navbar */ 
+
+.navbar-custom{
+    background-color: rgba(255, 255, 255, 0);
+}
+.navbar-custom a {
+    color:#000; 
+}
+
+
+/* H tags */
+h1, h2, h3, h4, h5, h6, h7 {
+    margin-bottom: 20px; 
+}
+/* Other */
+
+
+.right{
+    text-align: right; 
+}
+ul{
+    list-style-type: none; 
+}
+
+ul > li {
+margin: 10px 0; 
+}
+li > a {
+    margin-right: 15px; 
+}
+
+/* Tables  */
+table > tr > td{
+    padding: 10px!important;  
+}

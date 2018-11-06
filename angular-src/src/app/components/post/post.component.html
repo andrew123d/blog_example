@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="container">
+    <div class="col-xs-12">
+      
+      <div class="row">
+        <div *ngIf="errMess" class="col-xs-12">
+          <p>
+            <strong>Warning! Internal Server error. Please, try again later.</strong>
+          </p>
+        </div>
+        <div *ngIf="!errMess" class="col-xs-12">
+          <h1>{{postData?.title}}</h1>
+          <div>
+            <p>
+              <button type="button" (click)="editPost(postData._id)" class="btn btn-sm btn-warning">
+                <i class="fas fa-edit"></i>
+              </button>
+            </p>
+            <p><em>Added: <b>{{postValidDate}}</b></em></p>
+            <p><em>Category: <b><a [routerLink]="['/category/'+postData?.category._id]">{{postData?.category.title}}</a></b></em></p>
+          </div>
+          
+          <div>
+            <p>{{postData?.description_full}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="container">
+    <div class="col-xs-12">
+      <h2 *ngIf="!errMess">Category: {{catTitle}}</h2>
+      <div class="row">
+        <div *ngIf="errMess" class="col-md-12">
+          <p>
+            <strong>Warning! Internal Server error. Please, try again later.</strong>
+          </p>
+        </div>
+        <div *ngIf="noPosts" class="col-md-12">
+          <p>{{noPostsMess}}</p>
+        </div>
+        <div *ngIf="!errMess" class="col-md-12">
+          <div *ngIf="!noPosts">
+            <table class="table">
+              <thead>
+                  <tr>
+                      <th>Post's data</th>
+                      <th>Action</th>
+                    </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let post of postsData; let i = index; ">
+                    <td>
+                      <div class="row">
+                        <div class="col-xs-12">
+                            <h4>{{post.title}}</h4>
+                            <p>{{post.description_short}}</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                        <p>
+                            <a [routerLink]="['/post/'+post._id]">
+                              <button type="button" class="btn btn-md btn-primary">
+                                  <i class="fas fa-eye"></i>
+                              </button>
+                            </a> 
+                            <button type="button" class="btn btn-md btn-danger" (click)="removePost(post._id)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                          </p>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
